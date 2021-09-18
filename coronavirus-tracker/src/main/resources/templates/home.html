@@ -12,7 +12,17 @@
 <body>
 
 <h1>Coronavirus Tracker Application</h1>
-<p>This application lists the current number of cases reported across the world!</p>
+<p>This application lists the current number of cases reported across the globe!</p>
+
+<div class="jumbotron">
+    <h1 class="display-4" th:text="${totalReportedCases}"></h1>
+    <p class="lead">Total cases reported as of today.</p>
+<!--    <hr class="my-4">-->
+<!--    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>-->
+<!--    <p class="lead">-->
+<!--        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>-->
+<!--    </p>-->
+</div>
 <table>
     <tr>
         <th>State</th>
