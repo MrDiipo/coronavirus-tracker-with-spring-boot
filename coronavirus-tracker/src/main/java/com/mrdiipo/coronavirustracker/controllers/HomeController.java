@@ -12,7 +12,7 @@ public class HomeController {
     CoronaVirusDataService coronaVirusDataService;
 
     public String home(Model model){
-        model.addAttribute("dataStore", coronaVirusDataService.getAllStats());
+        model.addAttribute("locationStats", coronaVirusDataService.getAllStats());
         return "home";
     }
 }
