@@ -1,5 +1,7 @@
 package com.mrdiipo.coronavirustracker.services;
 
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVRecord;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +16,7 @@ import java.net.http.HttpResponse;
 @Service
 public class CoronaVirusDataService {
 
-    private static String VIRUS_DATA_URL = "";
+    private static String VIRUS_DATA_URL = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv";
 
     @PostConstruct
     public void fetchVirusData() throws IOException, InterruptedException {
@@ -27,5 +29,13 @@ public class CoronaVirusDataService {
         HttpResponse<String> httpResponse = client.send(request, HttpResponse.BodyHandlers.ofString());
 
         System.out.println(httpResponse.body());
+
+        Iterable<CSVRecord> records = CSVFormat.RFC4180.withFirstRecordAsHeader().parse(in);
+        for (CSVRecord record:
+             records) {
+            String id = record.get("ID");
+            String customerNo = record.get("CustomerNo");
+            String name = record.get("Name");
+        }
     }
 }
