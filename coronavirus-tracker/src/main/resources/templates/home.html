@@ -3,15 +3,29 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Good Thymes Virtual Grocery</title>
+    <title>Corona Virus Tracker</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" type="text/css" media="all"
-          href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
+
 </head>
 
 <body>
 
 <p th:text="${dataStore}"></p>
+
+<table>
+    <tr>
+        <th>State</th>
+        <th>Country</th>
+        <th>Total cases reported</th>
+    </tr>
+    <tr th:each="locationStat : ${locationStats}">
+
+        <td th:text="${locationStat.state}"></td>
+        <td th:text="${locationStat.Country}"></td>
+        <td th:text="${locationStat.latestTotalCases}">0</td>
+
+    </tr>
+</table>
 
 </body>
 
