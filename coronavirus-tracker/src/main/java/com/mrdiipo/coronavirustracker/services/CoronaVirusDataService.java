@@ -62,7 +62,7 @@ public class CoronaVirusDataService {
 //            String name = record.get("Name");
 //            System.out.println(state);
             locationStats.setLatestTotalCases(Integer.parseInt(record.get(record.size() - 1)));
-            System.out.println(locationStats);
+//            System.out.println(locationStats);
             newStats.add(locationStats);
         }
         this.allStats = newStats;
